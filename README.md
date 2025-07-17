@@ -1,33 +1,46 @@
 # ai-notebook
 
-Section 1: AI大模型基本原理及API使用
-Section 2: DeepSeek使用与Prompt工程
-Section 3: Cursor编程
-Section 4: Cursor数据可视化与洞察
-Section 5: 分析式AI基础
-Section 6: 不同领域的AI算法
-Section 7: 机器学习神器
-Section 8: 时间序列模型
-Section 9: 时间序列AI大赛
-Section 10: 神经网络基础与TensorFlow实战
-Section 11: Pytorch与视觉检测
-Section 12: Embeddings和向量数据库
-Section 13: RAG技术与应用
-Section 14: RAG的高级极强
-Section 15: Text2SQL：自助式数据报表开发
-Section 16: LangChain：多任务应用开发
-Section 17: Function Calling与智能体Agent开发
-Section 18: MCP与A2A的应用
-Section 19: Agent智能体系统的设计与应用
-Section 20: 视觉大模型与多模态理解
-Section 21: Fine-tuning技术与大模型优化
-Section 22: Coze工作原理与应用实例
-Section 23: Coze插件开发实战
-Section 24: Dify本地化部署和应用
-Section 25: 项目实战：企业知识库（企业RAG大赛冠军项目）
-Section 26: 项目实战：交互式BI报表（AI量化交易助手）
-Section 27: 项目实战：AI智慧运营助手（百万客群经营）
-Section 28: 项目实战：AI搜索类应用（知乎直答）
+## 目录
+
+### 基础理论与工具
+- [Section 1: AI大模型基本原理及API使用](section 1/README.md)
+- Section 2: DeepSeek使用与Prompt工程
+- Section 3: Cursor编程
+- Section 4: Cursor数据可视化与洞察
+- Section 5: 分析式AI基础
+- Section 6: 不同领域的AI算法
+- Section 7: 机器学习神器
+
+### 时间序列
+- Section 8: 时间序列模型
+- Section 9: 时间序列AI大赛
+
+### 神经网络与向量数据库
+- Section 10: 神经网络基础与TensorFlow实战
+- Section 11: Pytorch与视觉检测
+- Section 12: Embeddings和向量数据库
+
+### 进阶AI技术
+- Section 13: RAG技术与应用
+- Section 14: RAG的高级极强
+- Section 15: Text2SQL：自助式数据报表开发
+- Section 16: LangChain：多任务应用开发
+- Section 17: Function Calling与智能体Agent开发
+- Section 18: MCP与A2A的应用
+- Section 19: Agent智能体系统的设计与应用
+- Section 20: 视觉大模型与多模态理解
+- Section 21: Fine-tuning技术与大模型优化
+
+### 平台与工具
+- Section 22: Coze工作原理与应用实例
+- Section 23: Coze插件开发实战
+- Section 24: Dify本地化部署和应用
+
+### 项目实战
+- Section 25: 项目实战：企业知识库（企业RAG大赛冠军项目）
+- Section 26: 项目实战：交互式BI报表（AI量化交易助手）
+- Section 27: 项目实战：AI智慧运营助手（百万客群经营）
+- Section 28: 项目实战：AI搜索类应用（知乎直答）
 
 ---
 
