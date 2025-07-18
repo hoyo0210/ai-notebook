@@ -9,13 +9,13 @@
 
 ### 1. 安装依赖
 ```bash
-# 创建虚拟环境
+# 方法1：使用智能启动脚本（推荐）
+./start_app.sh
+# 脚本会自动创建虚拟环境并安装依赖
+
+# 方法2：手动安装
 python3 -m venv venv
-
-# 激活虚拟环境
 source venv/bin/activate
-
-# 安装依赖包
 pip install -r requirements.txt
 ```
 
@@ -30,12 +30,21 @@ OPENWEATHER_API_KEY=your_openweather_api_key_here
 ```
 
 ### 3. 启动应用
-使用提供的启动脚本：
-```bash
-# 查看所有可用应用
-./start_app.sh
+使用提供的智能启动脚本：
 
-# 启动特定应用
+#### 方法1：交互式启动（推荐）
+```bash
+./start_app.sh
+```
+脚本会自动：
+- ✅ 检查并创建虚拟环境
+- ✅ 自动安装依赖包
+- ✅ 提供美观的交互式选择界面
+- ✅ 智能检测可用端口
+- ✅ 显示应用访问地址
+
+#### 方法2：直接启动特定应用
+```bash
 ./start_app.sh sentiment    # 情感分析
 ./start_app.sh weather      # 天气查询
 ./start_app.sh table        # 表格提取
@@ -45,7 +54,13 @@ OPENWEATHER_API_KEY=your_openweather_api_key_here
 ./start_app.sh fraud        # 保险欺诈检测
 ```
 
-应用启动后，在浏览器中访问：`http://localhost:8501`
+#### 应用访问
+应用启动后，脚本会自动显示访问地址，通常为：
+- 本地访问：`http://localhost:8501`（或自动分配的端口）
+- 网络访问：`http://[您的IP]:8501`
+
+#### 停止应用
+在终端中按 `Ctrl+C` 即可停止应用
 
 ## 名词解释
 - **SFT（Supervised Fine-Tuning，监督微调）**：在已有预训练模型基础上，利用人工标注的数据对模型进行进一步微调，使其更符合特定任务需求。
@@ -179,10 +194,14 @@ Non-reasoning Modal：直接写正文
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh sentiment
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "1. 情感分析"
+
+# 方法3：手动启动（不推荐）
 cd case1_sentiment_analysis
 source ../venv/bin/activate
 streamlit run app.py
@@ -206,10 +225,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh weather
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "2. 天气查询"
+
+# 方法3：手动启动（不推荐）
 cd case2_weather
 source ../venv/bin/activate
 streamlit run app.py
@@ -233,10 +256,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh table
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "3. 表格提取"
+
+# 方法3：手动启动（不推荐）
 cd case3_table_extraction
 source ../venv/bin/activate
 streamlit run app.py
@@ -262,10 +289,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh summary
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "4. 文章摘要"
+
+# 方法3：手动启动（不推荐）
 cd case4_article_summary
 source ../venv/bin/activate
 streamlit run app.py
@@ -289,10 +320,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh ops
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "5. 运维事件"
+
+# 方法3：手动启动（不推荐）
 cd case5_ops_incident
 source ../venv/bin/activate
 streamlit run app.py
@@ -317,10 +352,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh customer
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "6. AI客服"
+
+# 方法3：手动启动（不推荐）
 cd case6_ai_customer_service
 source ../venv/bin/activate
 streamlit run app.py
@@ -346,10 +385,14 @@ streamlit run app.py
 
 **运行方式：**
 ```bash
-# 方法1：使用启动脚本（推荐）
+# 方法1：使用智能启动脚本（推荐）
 ./start_app.sh fraud
 
-# 方法2：手动启动
+# 方法2：交互式选择
+./start_app.sh
+# 然后选择 "7. 保险欺诈检测"
+
+# 方法3：手动启动（不推荐）
 cd case7_insurance_fraud
 source ../venv/bin/activate
 streamlit run app.py
@@ -450,3 +493,29 @@ streamlit run app.py
 - **垂直领域AI：** 探索金融、医疗、教育等特定行业的AI应用
 - **AI产品设计：** 学习如何设计用户友好的AI产品界面和交互
 - **AI商业模式：** 理解AI技术的商业化和产业化路径
+
+## 智能启动脚本特性
+
+### 🚀 自动化功能
+- **虚拟环境管理**：自动检查、创建和激活虚拟环境
+- **依赖包安装**：自动检测并安装所需的Python包
+- **端口管理**：智能检测端口占用，自动选择可用端口
+- **错误处理**：完善的错误提示和异常处理
+
+### 🎯 用户体验
+- **交互式界面**：美观的菜单选择界面
+- **多种启动方式**：支持交互式选择和直接命令启动
+- **实时状态反馈**：显示启动进度和访问地址
+- **一键停止**：Ctrl+C 快速停止应用
+
+### 📱 使用示例
+```bash
+# 交互式启动（推荐新手使用）
+./start_app.sh
+
+# 直接启动特定应用（推荐熟练用户）
+./start_app.sh sentiment
+
+# 查看帮助信息
+./start_app.sh --help
+```
