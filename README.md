@@ -3,7 +3,7 @@
 ## 目录
 
 ### 基础理论与工具
-- [Section 1: AI大模型基本原理及API使用](section 1/README.md)
+- [Section 1: AI大模型基本原理及API使用](section_1/README.md)
 - Section 2: DeepSeek使用与Prompt工程
 - Section 3: Cursor编程
 - Section 4: Cursor数据可视化与洞察
