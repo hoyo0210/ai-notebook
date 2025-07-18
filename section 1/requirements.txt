@@ -1,0 +1,37 @@
+# 基础依赖
+streamlit>=1.28.0
+requests>=2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 阿里云百炼SDK
+dashscope>=1.14.0
+
+# 数据处理
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# 表格处理
+openpyxl>=3.1.0
+xlrd>=2.0.0
+
+# 图像处理（用于表格提取）
+Pillow>=10.0.0
+opencv-python>=4.8.0
+
+# 文本处理
+nltk>=3.8.0
+jieba>=0.42.0
+
+# 可视化
+plotly>=5.15.0
+matplotlib>=3.7.0
+
+# 日志处理
+loguru>=0.7.0 beautifulsoup4
+PyPDF2
+python-docx
+psutil
+scikit-learn
+plotly
+xgboost

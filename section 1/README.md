@@ -5,6 +5,48 @@
 - AIGC的通用能力应用
 - 大模型API使用
 
+## 环境设置
+
+### 1. 安装依赖
+```bash
+# 创建虚拟环境
+python3 -m venv venv
+
+# 激活虚拟环境
+source venv/bin/activate
+
+# 安装依赖包
+pip install -r requirements.txt
+```
+
+### 2. 配置环境变量
+在项目根目录创建 `.env` 文件，添加以下配置：
+```bash
+# 阿里云百炼API密钥
+DASHSCOPE_API_KEY=your_dashscope_api_key_here
+
+# OpenWeatherMap API密钥（用于天气查询）
+OPENWEATHER_API_KEY=your_openweather_api_key_here
+```
+
+### 3. 启动应用
+使用提供的启动脚本：
+```bash
+# 查看所有可用应用
+./start_app.sh
+
+# 启动特定应用
+./start_app.sh sentiment    # 情感分析
+./start_app.sh weather      # 天气查询
+./start_app.sh table        # 表格提取
+./start_app.sh summary      # 文章摘要
+./start_app.sh ops          # 运维事件
+./start_app.sh customer     # AI客服
+./start_app.sh fraud        # 保险欺诈检测
+```
+
+应用启动后，在浏览器中访问：`http://localhost:8501`
+
 ## 名词解释
 - **SFT（Supervised Fine-Tuning，监督微调）**：在已有预训练模型基础上，利用人工标注的数据对模型进行进一步微调，使其更符合特定任务需求。
 - **RM（Reward Model，奖励模型）**：通过人工对模型生成的多个答案进行排序，训练出能够对答案优劣进行评分的模型，用于后续强化学习阶段。
@@ -35,7 +77,7 @@ AI的核心目标是**让机器能够执行通常需要人类智能的任务**�
 大语言模型是一种通用自然语言生成模型，使用大量语料数据训练，以实现生成文本、回答问题、对话生成等
 
 *基本能力*：语言生成、上下文学习、世界知识
-*“超”能力*：相应人类指令、泛化到没有见过的任务、代码生成和代码理解 
+*"超"能力*：相应人类指令、泛化到没有见过的任务、代码生成和代码理解 
 
 ## 从GPT1到GPT4
 
@@ -107,23 +149,265 @@ AI的核心目标是**让机器能够执行通常需要人类智能的任务**�
 
 AI如果是单纯的对文本进行处理，很容易产生幻觉。如果要避免或者减少AI出现幻觉，就要让AI围绕着可靠的数据来源以及代码来开展，并在出现幻觉时及时的纠正。在和AI的沟通过程中生成一个文档，围绕着文档的内容进行对话是一个不错的选择。
 
+**Reasoning Modal和Non-reasoning Modal**
+
+相对于创作来说的话：
+
+Reasoning Modal：先写在草稿纸上，进行撰写/规划，最后再写正文
+
+Non-reasoning Modal：直接写正文
+
 ## 大模型API使用
 
 > 可以尝试使用Function Calling完成复杂的业务逻辑
 
-### CASE 情感分析
+### CASE 1: 情感分析
 
-### CASE 天气
+**功能描述：** 使用阿里云百炼大模型分析文本的情感倾向，判断文本的情感倾向（正面、负面、中性）。
 
-### CASE 表格提取
+**应用场景：**
+- 社交媒体评论分析
+- 客户反馈情感分析
+- 产品评价分析
+- 舆情监控
 
-### CASE 对文章进行总结
+**Web界面功能：**
+- 文本情感分析
+- 关键词提取
+- 置信度评估
+- 历史记录查看
 
-### CASE 运维事件处理
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh sentiment
 
-### CASE AI客服
+# 方法2：手动启动
+cd case1_sentiment_analysis
+source ../venv/bin/activate
+streamlit run app.py
+```
 
-### CASE 车险反欺诈预测
+### CASE 2: 天气查询
+
+**功能描述：** 使用阿里云百炼大模型结合外部天气API，实现智能天气查询功能。
+
+**应用场景：**
+- 智能语音助手
+- 移动应用天气功能
+- 出行规划助手
+- 农业气象服务
+
+**Web界面功能：**
+- 自然语言天气查询
+- Function Calling实现
+- 智能回复生成
+- 详细天气数据展示
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh weather
+
+# 方法2：手动启动
+cd case2_weather
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+### CASE 3: 表格提取
+
+**功能描述：** 使用阿里云百炼大模型从文本或图像中提取表格数据，并进行结构化处理。
+
+**应用场景：**
+- 文档数字化处理
+- 财务报表分析
+- 学术论文数据提取
+- 报告自动化处理
+
+**Web界面功能：**
+- 文本表格提取
+- 文件上传处理
+- 多格式输出（CSV、JSON、Excel、Markdown）
+- 结果下载
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh table
+
+# 方法2：手动启动
+cd case3_table_extraction
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+### CASE 4: 文章摘要
+
+**功能描述：** 使用阿里云百炼大模型对长篇文章进行智能总结，提取关键信息和核心观点。
+
+**应用场景：**
+- 新闻摘要生成
+- 学术论文总结
+- 会议纪要整理
+- 文档快速浏览
+
+**Web界面功能：**
+- 智能文章总结
+- 多风格输出（学术、通俗、新闻、技术）
+- 关键点提取
+- 文章分析
+- URL文章抓取
+- 文件上传支持
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh summary
+
+# 方法2：手动启动
+cd case4_article_summary
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+### CASE 5: 运维事件处理
+
+**功能描述：** 使用阿里云百炼大模型获取本机系统信息并进行智能分析，提供系统状态诊断和优化建议。
+
+**应用场景：**
+- IT运维自动化
+- 系统监控告警处理
+- 故障诊断助手
+- 运维知识库管理
+
+**Web界面功能：**
+- 系统信息收集
+- 性能指标分析
+- 智能诊断建议
+- 系统优化推荐
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh ops
+
+# 方法2：手动启动
+cd case5_ops_incident
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+### CASE 6: AI客服
+
+**功能描述：** 使用阿里云百炼大模型构建智能客服系统，提供24/7自动化的客户服务支持。
+
+**应用场景：**
+- 电商客服机器人
+- 银行智能助手
+- 技术支持服务
+- 售前咨询助手
+
+**Web界面功能：**
+- 智能对话系统
+- 多场景支持（电商、技术、银行、保险等）
+- 对话历史管理
+- 知识库查询
+- 快速回复模板
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh customer
+
+# 方法2：手动启动
+cd case6_ai_customer_service
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+### CASE 7: 保险欺诈检测
+
+**功能描述：** 使用机器学习算法分析保险数据，训练模型预测和识别潜在的欺诈行为，提供风险评估和决策支持。
+
+**应用场景：**
+- 保险风险评估
+- 欺诈检测系统
+- 理赔自动化
+- 风险控制决策
+
+**Web界面功能：**
+- 多模型训练（随机森林、逻辑回归、SVM、XGBoost）
+- 模型性能评估
+- 单案欺诈预测
+- 批量案件处理
+- 风险评分模型
+- 特征重要性分析
+
+**运行方式：**
+```bash
+# 方法1：使用启动脚本（推荐）
+./start_app.sh fraud
+
+# 方法2：手动启动
+cd case7_insurance_fraud
+source ../venv/bin/activate
+streamlit run app.py
+```
+
+## 环境配置
+
+### 安装依赖
+```bash
+pip install -r requirements.txt
+```
+
+### 环境变量配置
+创建 `.env` 文件并配置以下变量：
+```
+DASHSCOPE_API_KEY=your_dashscope_api_key_here
+OPENWEATHER_API_KEY=your_openweather_api_key_here  # 仅CASE 2需要
+```
+
+### 获取API Key
+1. **阿里云百炼API Key：**
+   - 访问 [阿里云百炼控制台](https://bailian.console.aliyun.com/)
+   - 注册/登录阿里云账号
+   - 开通百炼服务
+   - 在控制台获取API Key
+
+2. **OpenWeatherMap API Key（仅CASE 2需要）：**
+   - 访问 [OpenWeatherMap官网](https://openweathermap.org/)
+   - 注册/登录账号
+   - 获取免费API Key
+   - 参考文档：[OpenWeatherMap API文档](https://openweathermap.org/api)
+
+### 运行所有案例
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行任意案例
+cd case1_sentiment_analysis
+streamlit run app.py
+```
+
+## 技术栈
+
+- **前端框架：** Streamlit
+- **AI模型：** 阿里云百炼（qwen-turbo、qwen-plus、qwen-max）
+- **数据处理：** Pandas, NumPy
+- **文件处理：** OpenPyXL, Pillow
+- **可视化：** Plotly, Matplotlib
+
+## 学习要点
+
+1. **API调用：** 学习如何调用阿里云百炼API进行文本处理
+2. **Function Calling：** 理解如何结合外部API实现复杂功能
+3. **Prompt工程：** 掌握有效的提示词设计技巧
+4. **Web开发：** 使用Streamlit快速构建AI应用界面
+5. **数据处理：** 学习文本、表格、文件等多种数据格式的处理
+6. **错误处理：** 掌握API调用异常处理和用户体验优化
 
 **Prompts**
 - 帮我分析这个数据表的字段含义
