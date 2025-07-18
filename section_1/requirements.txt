@@ -28,7 +28,8 @@ plotly>=5.15.0
 matplotlib>=3.7.0
 
 # 日志处理
-loguru>=0.7.0 beautifulsoup4
+loguru>=0.7.0
+beautifulsoup4>=4.12.0
 PyPDF2
 python-docx
 psutil
